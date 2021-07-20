@@ -18,4 +18,5 @@ export const taskService = {
 
         return this.getAll()
     }
+    
 }
