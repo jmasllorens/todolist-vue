@@ -1,6 +1,6 @@
 <template>
   <div class="movies">
-      <div><p><Searcher /></p></div>
+      <!-- <div><p><Searcher /></p></div> -->
       <h3 style="margin-top: 2rem; margin-bottom: 4rem;">Total of must-see movies: {{counter}}</h3>
     <ul>
       <li v-for="(movie, i) in moviesList"
