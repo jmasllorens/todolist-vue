@@ -1,8 +1,10 @@
 <template>
 <div>
   <h2 style="margin-bottom: 2.5rem;"><em>{{ movie.spanishTitle }}</em></h2>
+  <article style="height: auto; maegin-top: 3.5rem; margin-bottom: 4rem;">
     <!-- <img v-bind:src="`../assets/:${movie.img}.jpg`" style="width: 10%; margin-bottom: 1.5rem;"> -->
-  <img :src="require(`@/assets/${movie.img}.jpg`)" style="width: 20%; margin-bottom: 1.5rem;" alt class="icon" />
+    <img :src="require(`@/assets/${movie.img}.jpg`)" style="width: 20%; border-radius: 1rem;"/>
+  </article>
   <h4>ID number: {{ $route.params.id }}</h4>
   <h3>Original title: "{{ movie.title}}"</h3>
   <h3>Director: {{ movie.director }}</h3>
