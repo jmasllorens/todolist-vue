@@ -17,3 +17,7 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Execute json-server
+
+json-server --watch fileName.json <!-- vueLists.json -->

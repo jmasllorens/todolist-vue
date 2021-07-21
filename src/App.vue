@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link>   |
+       <router-link to="/movies">Movies</router-link>     |
+      <router-link to="/tasks">Tasks</router-link>        |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
@@ -46,6 +48,20 @@
   border: none;
   border-radius: 5px;
   color: white;
+  margin-left: 10px;
+  padding: 10px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.btn-warning {
+  
+  background-color: #dfdb12;
+  border: none;
+  border-radius: 5px;
+  color: black;
   margin-left: 10px;
   padding: 10px 18px;
   text-align: center;
