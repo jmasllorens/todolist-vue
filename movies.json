@@ -5,6 +5,7 @@
       "title": "Das Weisse Band",
       "spanishTitle": "La cinta blanca",
       "director": "Michael Haneke",
+      "year": 2009,
       "isSeen": false
     },
     {
@@ -12,6 +13,7 @@
       "title": "Czerwony",
       "spanishTitle": "Rojo",
       "director": "Krzysztof Kieślowski",
+      "year": 1994,
       "isSeen": false
     },
     {
@@ -19,6 +21,7 @@
       "title": "Kynódontas",
       "spanishTitle": "Canino",
       "director": "Yorgos Lanthimos",
+      "year": 2009,
       "isSeen": false
     },
     {
@@ -26,6 +29,7 @@
       "title": "Titane",
       "spanishTitle": "Titane",
       "director": "Julia Ducournau",
+      "year": 2021,
       "isSeen": false
     }
   ]

@@ -15,6 +15,9 @@ export const movieService = {
     deleteMovie(id) {
         axios.delete(baseURL + id)
         return this.getAll()
+    },
+    showMovie(id) {
+        return axios.get(baseURL + id)
     }
     
 }
