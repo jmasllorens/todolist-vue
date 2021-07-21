@@ -1,15 +1,15 @@
 <template>
   <div class="movies">
+      <div><p><Searcher /></p></div>
       <h3 style="margin-top: 2rem; margin-bottom: 4rem;">Total of must-see movies: {{counter}}</h3>
     <ul>
-      <li
-        v-for="(movie, i) in moviesList"
+      <li v-for="(movie, i) in moviesList"
         :key="i"
         style="margin-top: 2rem"
         @click="showMovie(movie.id)"
       >
-        "{{ movie.title }}" (<em>{{ movie.spanishTitle }}</em
-        >), by {{ movie.director }}
+        <p>"{{ movie.title }}" (<em>{{ movie.spanishTitle }}</em
+        >), by {{ movie.director }}</p>
         <button @click="deleteMovie(movie.id)" class="deleteBtn">x</button>
       </li>
     </ul>
@@ -35,14 +35,17 @@
 
 <script>
 
-import { movieService} from '../services/movieService'
+import { movieService } from '../services/movieService'
+import Searcher from '../components/Searcher.vue'
 
 export default {
      name: 'Movies',
      components: {
 
+         Searcher
+
      },
-     data() {
+     data() {  // data: modelo o estado propio de cada uno de los componentes
          return {
              moviesList: [],
              newMovie: {}

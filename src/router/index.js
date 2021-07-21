@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+
 import Home from '../views/Home.vue'
 import Movies from '../views/Movies.vue'
 import MovieDetails from '../views/MovieDetails.vue'

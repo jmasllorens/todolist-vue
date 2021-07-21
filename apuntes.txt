@@ -1,0 +1,7 @@
+Para ir de componentes padres a componentes hijos utilizamos los props; para ir de hijos a padres, los emit (eventos).
+
+VUEX:
+
+- Vuex tiene un repositorio general para toda la app, una especie de estado global.
+- Ese estado global va a ser dirigido a todos los componentes, que recibirán los nuevos estados.
+
