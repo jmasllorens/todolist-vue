@@ -44,7 +44,7 @@
       "director": "Michael Haneke",
       "year": 2009,
       "isSeen": false,
-      "img": "whiteRibbon"
+      "img": "whiteRibbon2"
     },
     {
       "id": 2,
@@ -72,6 +72,13 @@
       "year": 2021,
       "isSeen": false,
       "img": "titane"
+    },
+    {
+      "title": "Life of Brian",
+      "spanishTitle": "La vida de Brian",
+      "director": "Terry Jones",
+      "img": "lifeOfBrian",
+      "id": 5
     }
   ]
 }

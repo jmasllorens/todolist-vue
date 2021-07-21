@@ -1,17 +1,17 @@
 <template>
   <div class="movies">
       <!-- <div><p><Searcher /></p></div> -->
-      <h3 style="margin-top: 2rem; margin-bottom: 4rem;">Total of must-see movies: {{counter}}</h3>
-    <ul>
-      <li v-for="(movie, i) in moviesList"
+      <h3 style="margin-top: 2rem; margin-bottom: 2.5rem;">Total of must-see movies: {{counter}}</h3>
+      <article v-for="(movie, i) in moviesList"
         :key="i"
-        style="margin-top: 2rem"
-      >
-        <p  @click="showMovie(movie.id)">"{{ movie.title }}" (<em>{{ movie.spanishTitle }}</em
-        >), by {{ movie.director }}</p>
-        <button @click="deleteMovie(movie.id)" class="deleteBtn">x</button>
-      </li>
-    </ul>
+        style="margin-top: 2rem; margin-bottom: 2rem;"
+        @click="showMovie(movie.id)">
+             <img :src="require(`@/assets/${movie.img}.jpg`)" style="width: 10%; border-radius: 0.5rem; margin-top: 1rem;"/><br><br>
+             "{{ movie.title }}" (<em>{{ movie.spanishTitle }}</em
+        >), by {{ movie.director }}&nbsp;&nbsp;&nbsp;
+        <img src="@/assets/delete.png" style="width: 2%;" @click="deleteMovie(movie.id)"/><br><br><br>
+        <hr style="width: 80%;">
+      </article>
     <div style="margin-top: 5rem">
       <form>
         <label for=""><strong>Original title</strong></label
@@ -21,7 +21,9 @@
         <input type="text" v-model="newMovie.spanishTitle" />&nbsp;&nbsp;
         <label for=""><strong>Director</strong></label
         >&nbsp;&nbsp;
-        <input type="text" v-model="newMovie.director" />
+        <input type="text" v-model="newMovie.director" />&nbsp;&nbsp;
+        <label for=""><strong>URL local image</strong></label
+        >&nbsp;&nbsp; <input type="text" v-model="newMovie.img" />&nbsp;&nbsp;
       </form>
     </div>
     <div style="margin-top: 1.5rem">
