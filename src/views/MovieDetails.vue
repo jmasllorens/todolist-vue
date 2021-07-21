@@ -1,10 +1,12 @@
 <template>
 <div>
-  <h2>ID number: {{ $route.params.id }}</h2>
-  <h2>Original title: "{{ movie.title}}"</h2>
-  <h2>Spanish title: <em>{{ movie.spanishTitle }}</em></h2>
-  <h2>Director: {{ movie.director }}</h2>
-  <h2>Year: {{ movie.year }}</h2>
+  <h2 style="margin-bottom: 2.5rem;"><em>{{ movie.spanishTitle }}</em></h2>
+    <!-- <img v-bind:src="`../assets/:${movie.img}.jpg`" style="width: 10%; margin-bottom: 1.5rem;"> -->
+  <img :src="require(`@/assets/${movie.img}.jpg`)" style="width: 20%; margin-bottom: 1.5rem;" alt class="icon" />
+  <h4>ID number: {{ $route.params.id }}</h4>
+  <h3>Original title: "{{ movie.title}}"</h3>
+  <h3>Director: {{ movie.director }}</h3>
+  <h3>Year: {{ movie.year }}</h3>
 </div>
 </template>
 

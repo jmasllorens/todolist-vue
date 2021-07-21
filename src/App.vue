@@ -56,6 +56,20 @@
   font-size: 14px;
 }
 
+.btn-warning {
+  
+  background-color: #dfdb12;
+  border: none;
+  border-radius: 5px;
+  color: black;
+  margin-left: 10px;
+  padding: 10px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
 .inputTaskTitles {
 
   width: 20%;

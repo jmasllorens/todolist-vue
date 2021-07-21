@@ -8,7 +8,7 @@ export default new Vuex.Store({
         msg: 'Vue con Vuex',
         title: 'Dr.',
         name: 'Recordà',
-        songs: ['Àngels ferotges', 'Mel i coratge', 'Realitat vs ficcions', 'Humor sapiens'],
+        songs: ['Cansament brutal', 'Àngels ferotges', 'Mel i coratge', 'Realitat vs ficcions', 'Humor sapiens'],
         song: null
 
     },

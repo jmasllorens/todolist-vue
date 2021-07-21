@@ -5,7 +5,7 @@
     <h5>{{ $store.getters.getFullName}}</h5>
     <h3 style="margin-bottom: 2rem;">Songs</h3>
     <input type="text" v-model="song">&nbsp;&nbsp;
-    <button class="btn btn-warning" style="margin-bottom: 2rem;" @click="addSong">Add new song</button>
+    <button class="btn-warning" style="margin-bottom: 2rem;" @click="addSong">Add new song</button>
     <ul>
         <li 
         v-for="(song, i) in $store.state.songs"

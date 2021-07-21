@@ -34,42 +34,44 @@
       "title": "Joan Recordà, recorda recordar",
       "isDone": false,
       "id": 8
-    }],
-
-    
-    
-    "movies": [
-      {
-        "id": 1,
-        "title": "Das Weisse Band",
-        "spanishTitle": "La cinta blanca",
-        "director": "Michael Haneke",
-        "year": 2009,
-        "isSeen": false
-      },
-      {
-        "id": 2,
-        "title": "Czerwony",
-        "spanishTitle": "Rojo",
-        "director": "Krzysztof Kieślowski",
-        "year": 1994,
-        "isSeen": false
-      },
-      {
-        "id": 3,
-        "title": "Kynódontas",
-        "spanishTitle": "Canino",
-        "director": "Yorgos Lanthimos",
-        "year": 2009,
-        "isSeen": false
-      },
-      {
-        "id": 4,
-        "title": "Titane",
-        "spanishTitle": "Titane",
-        "director": "Julia Ducournau",
-        "year": 2021,
-        "isSeen": false
-      }
-    ]
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "Das Weisse Band",
+      "spanishTitle": "La cinta blanca",
+      "director": "Michael Haneke",
+      "year": 2009,
+      "isSeen": false,
+      "img": "whiteRibbon"
+    },
+    {
+      "id": 2,
+      "title": "Czerwony",
+      "spanishTitle": "Rojo",
+      "director": "Krzysztof Kieślowski",
+      "year": 1994,
+      "isSeen": false,
+      "img": "rouge"
+    },
+    {
+      "id": 3,
+      "title": "Kynódontas",
+      "spanishTitle": "Canino",
+      "director": "Yorgos Lanthimos",
+      "year": 2009,
+      "isSeen": false,
+      "img": "canino"
+    },
+    {
+      "id": 4,
+      "title": "Titane",
+      "spanishTitle": "Titane",
+      "director": "Julia Ducournau",
+      "year": 2021,
+      "isSeen": false,
+      "img": "titane"
+    }
+  ]
 }

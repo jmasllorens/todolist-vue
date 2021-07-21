@@ -6,9 +6,8 @@
       <li v-for="(movie, i) in moviesList"
         :key="i"
         style="margin-top: 2rem"
-        @click="showMovie(movie.id)"
       >
-        <p>"{{ movie.title }}" (<em>{{ movie.spanishTitle }}</em
+        <p  @click="showMovie(movie.id)">"{{ movie.title }}" (<em>{{ movie.spanishTitle }}</em
         >), by {{ movie.director }}</p>
         <button @click="deleteMovie(movie.id)" class="deleteBtn">x</button>
       </li>
