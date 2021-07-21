@@ -25,8 +25,6 @@
 import axios from 'axios'
 import { taskService } from "@/services/taskService"
 
-const baseURL = "http://localhost:3000/tasks/"
-
 export default {
 
   name: 'Tasks',

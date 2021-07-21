@@ -1,0 +1,75 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "Read documentation",
+      "isDone": false
+    },
+    {
+      "id": 2,
+      "title": "Open VSC",
+      "isDone": false
+    },
+    {
+      "id": 3,
+      "title": "Try writing some consistent code",
+      "isDone": false
+    },
+    {
+      "id": 4,
+      "title": "Abort mission, go and rest",
+      "isDone": false
+    },
+    {
+      "title": "Try writing some Frankenstein code",
+      "isDone": false,
+      "id": 5
+    },
+    {
+      "title": "Go on holidays right now",
+      "isDone": false,
+      "id": 6
+    },
+    {
+      "title": "Joan Recordà, recorda recordar",
+      "isDone": false,
+      "id": 8
+    }],
+
+    
+    
+    "movies": [
+      {
+        "id": 1,
+        "title": "Das Weisse Band",
+        "spanishTitle": "La cinta blanca",
+        "director": "Michael Haneke",
+        "year": 2009,
+        "isSeen": false
+      },
+      {
+        "id": 2,
+        "title": "Czerwony",
+        "spanishTitle": "Rojo",
+        "director": "Krzysztof Kieślowski",
+        "year": 1994,
+        "isSeen": false
+      },
+      {
+        "id": 3,
+        "title": "Kynódontas",
+        "spanishTitle": "Canino",
+        "director": "Yorgos Lanthimos",
+        "year": 2009,
+        "isSeen": false
+      },
+      {
+        "id": 4,
+        "title": "Titane",
+        "spanishTitle": "Titane",
+        "director": "Julia Ducournau",
+        "year": 2021,
+        "isSeen": false
+      }
+    ]
+}
