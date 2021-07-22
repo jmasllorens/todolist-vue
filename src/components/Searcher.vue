@@ -2,12 +2,10 @@
   <div class="searcher">
     <h2>Tries</h2>
     <h4>{{ $store.state.msg }}</h4>
-    <h5>{{ $store.getters.getFullName }}</h5>
-    <h3 style="margin-bottom: 2rem">Songs</h3>
-    <input type="text" v-model="song" />&nbsp;&nbsp;
-    <button class="btn-warning" style="margin-bottom: 2rem" @click="addSong">
-      Add new song
-    </button>
+    <h5>{{ $store.getters.getFullName}}</h5>
+    <h3 style="margin-bottom: 2rem;">Songs: {{ $store.getters.getSongsNumber }}</h3>
+    <input type="text" v-model="song">&nbsp;&nbsp;
+    <button class="btn-warning" style="margin-bottom: 2rem;" @click="addSong">Add new song</button>
     <ul>
       <li v-for="(song, i) in $store.state.songs" :key="i">
         {{ song }}
