@@ -10,6 +10,7 @@ export default new Vuex.Store({
         name: 'Recordà',
         songs: ['Cansament brutal', 'Àngels ferotges', 'Mel i coratge', 'Realitat vs ficcions', 'Humor sapiens'],
         song: null
+        
 
     },
     mutations: {
