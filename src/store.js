@@ -13,10 +13,11 @@ export default new Vuex.Store({
       "Àngels ferotges",
       "Mel i coratge",
       "Realitat vs ficcions",
+      "Centaures i caputxetes",
       "Humor sapiens",
     ],
     song: null,
-    songsNumber: 5,
+    songsNumber: null,
   },
   mutations: {
     addSong(state) {
