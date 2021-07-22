@@ -2,36 +2,35 @@
   <div class="searcher">
     <h2>Tries</h2>
     <h4>{{ $store.state.msg }}</h4>
-    <h5>{{ $store.getters.getFullName}}</h5>
-    <h3 style="margin-bottom: 2rem;">Songs</h3>
-    <input type="text" v-model="song">&nbsp;&nbsp;
-    <button class="btn-warning" style="margin-bottom: 2rem;" @click="addSong">Add new song</button>
+    <h5>{{ $store.getters.getFullName }}</h5>
+    <h3 style="margin-bottom: 2rem">Songs</h3>
+    <input type="text" v-model="song" />&nbsp;&nbsp;
+    <button class="btn-warning" style="margin-bottom: 2rem" @click="addSong">
+      Add new song
+    </button>
     <ul>
-        <li 
-        v-for="(song, i) in $store.state.songs"
-        :key="i">
+      <li v-for="(song, i) in $store.state.songs" :key="i">
         {{ song }}
-        </li>
+      </li>
     </ul>
-    </div>
-    
+  </div>
 </template>
 <script>
 export default {
-  name: 'Searcher',
+  name: "Searcher",
   data() {
-      return {
-          song:''
-      }
+    return {
+      song: "",
+    };
   },
   methods: {
-      addSong() {
-          this.$store.state.song = this.song
-          this.$store.dispatch('addSongAction')
-          this.song = ''  // para limpiar el input
-      }
-  }
-}
+    addSong() {
+      this.$store.state.song = this.song;
+      this.$store.dispatch("addSongAction");
+      this.song = ""; // para limpiar el input
+    },
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
