@@ -3,7 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-/* const lyricsSongs = () => {
+const lyricsSongs = () => {
     return [{
         title: "Àngels ferotges",
         line1: "ritme i acció, tot emoció",
@@ -15,7 +15,7 @@ Vue.use(Vuex);
         line2: "",
         line1Chorus: "",
     }]
-}  */
+}  
 
 
 export default new Vuex.Store({
