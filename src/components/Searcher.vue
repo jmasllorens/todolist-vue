@@ -4,6 +4,7 @@
     <h4>{{ $store.state.msg }}</h4>
     <h5>{{ $store.getters.getFullName}}</h5>
     <h3 style="margin-bottom: 2rem;">Songs: {{ $store.getters.getSongsNumber }}</h3>
+    <h5>Second song: "{{ $store.getters.getSecondSong}}"</h5>
     <input type="text" v-model="song">&nbsp;&nbsp;
     <button class="btn-warning" style="margin-bottom: 2rem;" @click="addSong">Add new song</button>
     <ul>

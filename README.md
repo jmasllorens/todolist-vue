@@ -24,7 +24,7 @@ npm install -g json-server
 
 ### Execute json-server
 
-json-server --watch fileName.json <!-- vueLists.json -->
+json-server --watch fileName.json <!-- json-server --watch vueLists.json -->
 
 ### Install Vue after Vuex
 
