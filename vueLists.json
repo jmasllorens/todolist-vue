@@ -63,6 +63,15 @@
       "year": 2009,
       "isSeen": false,
       "img": "canino"
+    },
+    {
+      "id": 4,
+      "title": "Titane",
+      "spanishTitle": "Titane",
+      "director": "Julia Ducournau",
+      "year": 2021,
+      "isSeen": false,
+      "img": "titane"
     }
   ]
 }
