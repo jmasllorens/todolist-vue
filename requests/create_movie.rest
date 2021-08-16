@@ -1,0 +1,21 @@
+POST http://localhost:3001/api/movies 
+Content-Type: application/json
+
+{
+    "title": "New movie",
+    "spanishTitle": "Nueva peli",
+    "director": "YouTube",
+    "year": 2021,
+    "img": ""
+}
+
+###
+
+POST http://localhost:3001/api/movies 
+Content-Type: application/json
+
+{
+    "director": "YouTube"
+
+}
+
