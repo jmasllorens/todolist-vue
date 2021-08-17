@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 import Home from '../views/Home.vue'
 import Movies from '../views/Movies.vue'
 import MovieDetails from '../views/MovieDetails.vue'
+import MoviesNode from '../views/MoviesNode.vue'
 import Tasks from '../views/Tasks.vue'
 
 
@@ -23,7 +24,11 @@ const routes = [
     name: 'Movies',
     component: Movies
   },
-
+  {
+    path: '/node',
+    name: 'MoviesNode',
+    component: MoviesNode
+  },
   {
     path: '/movies/:id',
     name: 'MovieDetails',

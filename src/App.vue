@@ -4,6 +4,7 @@
       <router-link to="/">Home</router-link>   |
        <router-link to="/movies">Movies</router-link>     |
       <router-link to="/tasks">Tasks</router-link>        |
+       <router-link to="/node">Node</router-link>        |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>

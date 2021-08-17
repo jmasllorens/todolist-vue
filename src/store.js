@@ -3,20 +3,22 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-const lyricsSongs = () => {
-    return [{
-        title: "Àngels ferotges",
-        line1: "ritme i acció, tot emoció",
-        line2: "agitació sense control",
-        line1Chorus: "érem àngels tan ferotges que solíem fer bullir la sang",
-    }, {
-        title: "Mel i coratge",
-        line1: "",
-        line2: "",
-        line1Chorus: "",
-    }]
-}  
-
+/* const lyricsSongs = () => {
+  return [
+    {
+      title: "Àngels ferotges",
+      line1: "ritme i acció, tot emoció",
+      line2: "agitació sense control",
+      line1Chorus: "érem àngels tan ferotges que solíem fer bullir la sang",
+    },
+    {
+      title: "Mel i coratge",
+      line1: "",
+      line2: "",
+      line1Chorus: "",
+    },
+  ];
+}; */
 
 export default new Vuex.Store({
   state: {
@@ -30,7 +32,6 @@ export default new Vuex.Store({
       "Realitat vs ficcions",
       "Centaures i caputxetes",
       "Humor sapiens",
-
     ],
     song: null,
     //songsNumber: null,
@@ -56,7 +57,7 @@ export default new Vuex.Store({
       return state.songs.length;
     },
     getSecondSong(state) {
-        return state.songs[1]
+      return state.songs[1];
     },
   },
 });
