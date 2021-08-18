@@ -3,20 +3,24 @@
 //const http = require('http') // forma de cargar módulos en node.js Se importa el módulo http, para hacer requests o crear un servidor
 //import http from 'http'
 
+require('dotenv').config()
+require('./mongo.js')
+
+
 const express = require('express')
 const cors = require('cors')
 const app = express()
-const logger = require('./loggerMiddleware')
-
+const Movie = require('./models/Movie')
+const logger = require('./middleware/logger')
+const notFound = require('./middleware/notFound')
+const handleErrors = require('./middleware/handleErrors')
 
 app.use(cors()) // Esto permite que cualquier origen funcione en nuestra app
 app.use(express.json())
 
 app.use(logger)
 
-
-
-let movies = [
+/* let movies = [
 	{
 		'id': 1,
 		'title': 'Das Weisse Band',
@@ -71,7 +75,7 @@ let movies = [
 		'isSeen': true,
 		'img': ''
 	}
-]
+] */
 
 
 
@@ -81,33 +85,66 @@ let movies = [
 
 }) */
 
+// el orden de los middleware y de los path es IMPORTANTÍSIMO
+
 app.get('/', (request, response) => {
 	// cuando se haga una petición del tipo get (el paréntesis indica en qué path)
 	response.send('<h1>Hello, cruel world!</h1>')
 })
 
 app.get('/api/movies', (request, response) => {
-	response.json(movies)
+	Movie.find({}).then(movies => {
+		response.json(movies)
+	})
 })
 
-app.get('/api/movies/:id', (request, response) => {
-	const id = Number(request.params.id) // cuando ponemos params tienes todos los objetos de la ruta dinámica
-	console.log({ id })
-	const movie = movies.find(movie => movie.id == id)
+app.get('/api/movies/:id', (request, response, next) => {
+	//const id = Number(request.params.id) // cuando ponemos params tienes todos los objetos de la ruta dinámica
+	const { id } = request.params
+	/* console.log({ id }) 
+	const movie = movies.find(movie => movie.id == id) */
 
-	if (movie) {
-		//console.log({movie})
-		response.json(movie)
-	} else {
-		response.status(404).end()
+	Movie.findById(id).then(movie => {
+		if (movie) {
+			//console.log({movie})
+			response.json(movie)
+		} else {
+			response.status(404).end()
+		}
+	}).catch(err => {
+		next(err)
+	/* 	console.error(err.message)
+		response.status(400).end() */
+	})
+	})
+
+app.put('/api/movies/:id', (request, response, next) => {
+	const {id} = request.params
+	const movie = request.body
+
+	const newMovieInfo = {
+		title: movie.title,
+		spanishTitle: movie.spanishTitle,
+		director: movie.director,
+		year: movie.year,
+		isSeen: movie.isSeen,
+		img: movie.img
 	}
 
+	Movie.findByIdAndUpdate(id, newMovieInfo, {new: true})
+		.then(result => {
+		response.json(result)
+	})	
 })
 
-app.delete('/api/movies/:id', (request, response) => {
-	const id = Number(request.params.id)
-	movies = movies.filter(movie => movie.id != id)
-	response.status(202).end()
+app.delete('/api/movies/:id', (request, response, next) => {
+	const {id} = request.params
+	//movies = movies.filter(movie => movie.id != id) esto sería lo que ahora en cierto modo hace la DB
+
+	Movie.findByIdAndDelete(id).then(result => {
+		response.status(204).end()
+	}).catch(error => next(error))
+	
 })
 
 app.post('/api/movies', (request, response) => {
@@ -116,14 +153,11 @@ app.post('/api/movies', (request, response) => {
 
 	if (!movie || !movie.title) {
 		return response.status(400).json({
-			error: 'movie.title is missing'
+			error: 'Required "title" field is missing'
 		})
 	}
 
-	const ids = movies.map(movie => movie.id)
-	const maxId = Math.max(...ids)
-	const newMovie = {
-		id: maxId + 1,
+	const newMovie = new Movie({
 		title: movie.title,
 		spanishTitle: movie.spanishTitle,
 		director: movie.director,
@@ -132,21 +166,34 @@ app.post('/api/movies', (request, response) => {
 		img: movie.img
 
 	}
+)
 
-	movies = [...movies, newMovie] // o: movies.concat(newMovie)
+	/* const ids = movies.map(movie => movie.id)
+	const maxId = Math.max(...ids)
+	const newMovie = {
+		id: maxId + 1,
+		title: movie.title,
+		spanishTitle: movie.spanishTitle,
+		director: movie.director,
+		year: movie.year,
+		isSeen: movie.isSeen != undefined ? movie.isSeen : false, // isSeen: movie.isSeen || false, 
+		img: movie.img
 
-	response.status(201).json(newMovie)
-})
+	}
 
-app.use((request, response) => {
-	response.status(404).json({
-		error: 'Not found'
+	movies = [...movies, newMovie] // o: movies.concat(newMovie) */
+	newMovie.save().then(savedMovie => {
+		response.json(savedMovie)
 	})
-
+	/* response.status(201).json(newMovie) */
 })
+
+app.use(notFound)
+
+app.use(handleErrors)
 
 // En express, se inicia el servidor en asíncrono
-const PORT = process.env.PORT || 3001 // Este servidor va a estar escuchando en el puerto 3001
+const PORT = process.env.PORT  // || 3001 // Este servidor va a estar escuchando en el puerto 3001
 
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`)

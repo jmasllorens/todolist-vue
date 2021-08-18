@@ -1,0 +1,9 @@
+PUT http://localhost:3001/api/movies/611d7c116ecdb65a405b0fea
+Content-Type: application/json
+
+{
+    "title": "Updated title",
+    "spanishTitle": "Título actualizado"
+}
+
+

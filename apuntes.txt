@@ -5,3 +5,8 @@ VUEX:
 - Vuex tiene un repositorio general para toda la app, una especie de estado global.
 - Ese estado global va a ser dirigido a todos los componentes, que recibirán los nuevos estados.
 
+MONGO DB:
+
+User: jael-masllorens
+Password: password-db
+
