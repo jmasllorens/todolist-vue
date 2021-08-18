@@ -141,7 +141,7 @@ app.delete('/api/movies/:id', (request, response, next) => {
 	const {id} = request.params
 	//movies = movies.filter(movie => movie.id != id) esto sería lo que ahora en cierto modo hace la DB
 
-	Movie.findByIdAndDelete(id).then(result => {
+	Movie.findByIdAndDelete(id).then(() => {
 		response.status(204).end()
 	}).catch(error => next(error))
 	
