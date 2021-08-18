@@ -31,4 +31,8 @@ json-server --watch fileName.json <!-- json-server --watch vueLists.json -->
 
 npm install vuex --save
 
+### Deployment URL (Node API)
+
+https://secure-mesa-35779.herokuapp.com/api/movies
+
 

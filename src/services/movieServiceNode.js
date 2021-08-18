@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseURL = "http://localhost:3001/api/movies/"
+const baseURL = "https://secure-mesa-35779.herokuapp.com/api/movies/"
 
 export const movieServiceNode = {
     getAll() {
