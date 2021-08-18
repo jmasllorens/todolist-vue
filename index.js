@@ -146,7 +146,7 @@ app.use((request, response) => {
 })
 
 // En express, se inicia el servidor en asíncrono
-const PORT = 3001 // Este servidor va a estar escuchando en el puerto 3001
+const PORT = process.env.PORT || 3001 // Este servidor va a estar escuchando en el puerto 3001
 
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`)
