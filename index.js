@@ -3,7 +3,7 @@
 //const http = require('http') // forma de cargar módulos en node.js Se importa el módulo http, para hacer requests o crear un servidor
 //import http from 'http'
 
-require('dotenv').config()
+//require('dotenv').config()
 require('./mongo.js')
 
 
@@ -193,7 +193,7 @@ app.use(notFound)
 app.use(handleErrors)
 
 // En express, se inicia el servidor en asíncrono
-const PORT = process.env.PORT  // || 3001 // Este servidor va a estar escuchando en el puerto 3001
+const PORT = process.env.PORT || 3001 // Este servidor va a estar escuchando en el puerto 3001
 
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`)
