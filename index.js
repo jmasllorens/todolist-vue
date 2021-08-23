@@ -194,7 +194,9 @@ app.use(handleErrors)
 
 // En express, se inicia el servidor en asíncrono
 const PORT = process.env.PORT || 3001 // Este servidor va a estar escuchando en el puerto 3001
-
+const server = 
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`)
 })
+
+module.exports = {app, server}
