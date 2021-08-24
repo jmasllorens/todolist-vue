@@ -3,23 +3,10 @@ const supertest = require('supertest')
 const { app, server } = require('../index')
 const logger = require('../middleware/logger')
 const Movie = require('../models/Movie')
+const { initialMovies } = require('./helpers')
 
 const api = supertest(app)
 const mongooseConnection = require('../mongo')
-
-const initialMovies = [
-    {
-        title: 'MongoDB is incredible',
-        spanishTitle: "MongoDB es increíble",
-        director: "Midu",
-        year: 2021,
-        isSeen: true
-    },
-    {
-        title: 'Updated title',
-        spanishTitle: "Título actualizado"
-    }
-]
 
 beforeEach( async () => {
     await Movie.deleteMany({})
