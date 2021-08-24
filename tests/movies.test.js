@@ -5,6 +5,7 @@ const logger = require('../middleware/logger')
 const Movie = require('../models/Movie')
 
 const api = supertest(app)
+const mongooseConnection = require('../mongo')
 
 const initialMovies = [
     {
@@ -66,7 +67,7 @@ test('a movie without title cannot be added', async () => {
     
     const response = await api.get('/api/movies')
    
-    expect(response.body).toHaveLength(initialMovies)
+    expect(response.body).toHaveLength(initialMovies.length)
 })
 
 test('a valid movie can be added', async () => {
@@ -89,6 +90,8 @@ test('a valid movie can be added', async () => {
 })
 
 afterAll(() => {
+
     mongoose.connection.close()
     server.close()
+    console.log(mongoose.connection.readyState)
 })

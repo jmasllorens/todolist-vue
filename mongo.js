@@ -6,7 +6,7 @@ const connectionString = 'mongodb+srv://jael-masllorens:password-db@cluster1.3i1
 
 
 
-mongoose.connect(connectionString, {
+const mongooseConnection = mongoose.connect(connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -18,7 +18,9 @@ mongoose.connect(connectionString, {
         console.error(err)
     })
 
-    
+  
+
+  module.exports = mongooseConnection
 
 
     
