@@ -76,6 +76,30 @@ test('a valid movie can be added', async () => {
     expect(titles).toContain(newMovie.title)
 })
 
+test('a movie can be deleted', async () => {
+    const firstResponse = await api.get('/api/movies')
+    const movies = firstResponse.body
+    const movieToDelete = movies[0]
+
+    await api
+        .delete(`/api/movies/${movieToDelete.id}`)
+        .expect(204)
+    
+        const secondResponse = await api.get('/api/movies')
+        expect(secondResponse.body).toHaveLength(initialMovies.length -1)
+})
+
+test('a movie that doesnt exist cannot be deleted', async () => {
+
+    await api
+        .delete('/api/movies/1234')
+        .expect(400)
+    
+        const response = await api.get('/api/movies')
+        expect(response.body).toHaveLength(initialMovies.length)
+})
+
+
 afterAll(() => {
 
     mongoose.connection.close()

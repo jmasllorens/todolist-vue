@@ -80,8 +80,8 @@ app.use(logger)
 
 
 /* const app = http.createServer((request, response) => {  // guardamos el servidor que hemos creado en la constante app. Con el createServer estamos creando un callback, una función que se ejecuta cuando pasa algo. Cada vez que le llegue una request o petición a este servidor, se va a ejecutar esta función. Le pasamos el parámetro objeto request y el parámetro objeto response. Esta response tiene diferentes métodos para que puedas devolver la info que quieras.
-    response.writeHead(200, { 'Content-Type': 'application/json'}) // Esta va a ser la cabecera de la respuesta: status code 200 = ok, y te indica el tipo de contenido, texto plano (para que el navegador entienda de qué tipo de dato se trata)
-    response.end(JSON.stringify(movies)) // Para terminar la respuesta, devolvemos este string
+	response.writeHead(200, { 'Content-Type': 'application/json'}) // Esta va a ser la cabecera de la respuesta: status code 200 = ok, y te indica el tipo de contenido, texto plano (para que el navegador entienda de qué tipo de dato se trata)
+	response.end(JSON.stringify(movies)) // Para terminar la respuesta, devolvemos este string
 
 }) */
 
@@ -92,10 +92,9 @@ app.get('/', (request, response) => {
 	response.send('<h1>Hello, cruel world!</h1>')
 })
 
-app.get('/api/movies', (request, response) => {
-	Movie.find({}).then(movies => {
-		response.json(movies)
-	})
+app.get('/api/movies', async (request, response) => {
+	const movies = await Movie.find({})
+	response.json(movies)
 })
 
 app.get('/api/movies/:id', (request, response, next) => {
@@ -113,13 +112,13 @@ app.get('/api/movies/:id', (request, response, next) => {
 		}
 	}).catch(err => {
 		next(err)
-	/* 	console.error(err.message)
-		response.status(400).end() */
+		/* 	console.error(err.message)
+			response.status(400).end() */
 	})
-	})
+})
 
 app.put('/api/movies/:id', (request, response, next) => {
-	const {id} = request.params
+	const { id } = request.params
 	const movie = request.body
 
 	const newMovieInfo = {
@@ -131,23 +130,25 @@ app.put('/api/movies/:id', (request, response, next) => {
 		img: movie.img
 	}
 
-	Movie.findByIdAndUpdate(id, newMovieInfo, {new: true})
+	Movie.findByIdAndUpdate(id, newMovieInfo, { new: true })
 		.then(result => {
-		response.json(result)
-	})	
+			response.json(result)
+		})
 })
 
-app.delete('/api/movies/:id', (request, response, next) => {
-	const {id} = request.params
-	//movies = movies.filter(movie => movie.id != id) esto sería lo que ahora en cierto modo hace la DB
-
-	Movie.findByIdAndDelete(id).then(() => {
-		response.status(204).end()
-	}).catch(error => next(error))
+app.delete('/api/movies/:id', async (request, response, next) => {
 	
-})
+	const { id } = request.params
+	//movies = movies.filter(movie => movie.id != id) esto sería lo que ahora en cierto modo hace la DB
+	try {
+		await Movie.findByIdAndDelete(id)
+		response.status(204).end()
+	} catch (error) {
+		next(error)
+	}
+}) 
 
-app.post('/api/movies', (request, response) => {
+app.post('/api/movies', async (request, response) => {
 	const movie = request.body
 	//console.log(movie)
 
@@ -166,7 +167,7 @@ app.post('/api/movies', (request, response) => {
 		img: movie.img
 
 	}
-)
+	)
 
 	/* const ids = movies.map(movie => movie.id)
 	const maxId = Math.max(...ids)
@@ -182,10 +183,16 @@ app.post('/api/movies', (request, response) => {
 	}
 
 	movies = [...movies, newMovie] // o: movies.concat(newMovie) */
-	newMovie.save().then(savedMovie => {
+	/* newMovie.save().then(savedMovie => {
 		response.json(savedMovie)
-	})
+	}).catch(err => next(err)) */
 	/* response.status(201).json(newMovie) */
+	try {
+		const savedMovie = await newMovie.save()
+		response.json(savedMovie)
+	} catch (error) {
+		next(error)
+	}
 })
 
 app.use(notFound)
@@ -194,9 +201,9 @@ app.use(handleErrors)
 
 // En express, se inicia el servidor en asíncrono
 const PORT = process.env.PORT || 3001 // Este servidor va a estar escuchando en el puerto 3001
-const server = 
-app.listen(PORT, () => {
-	console.log(`Server running on port ${PORT}`)
-})
+const server =
+	app.listen(PORT, () => {
+		console.log(`Server running on port ${PORT}`)
+	})
 
-module.exports = {app, server}
+module.exports = { app, server }
