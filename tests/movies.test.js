@@ -11,11 +11,28 @@ const mongooseConnection = require('../mongo')
 beforeEach( async () => {
     await Movie.deleteMany({})
 
-    const movie1 = new Movie(initialMovies[0])
+    // se guarda en paralelo, por lo que no podemos saber qué proceso termina antes
+/*     const movieObjects = initialMovies.map(movie => new Movie(movie)) 
+    const promises = movieObjects.map(movie => movie.save())
+    await Promise.all(promises) */
+
+    // aquí, en cambio, el proceso se hace de manera secuencial
+    for (const movie of initialMovies) { 
+        const movieObject = new Movie(movie)
+        await movieObject.save()
+    }
+
+   /*  const movie1 = new Movie(initialMovies[0])
     await movie1.save()
 
     const movie2 = new Movie(initialMovies[1])
-    await movie2.save()
+    await movie2.save() */
+
+   /*  initialMovies.forEach( async movie => { 
+        const movieObject = new Movie(movie)
+        await movieObject.save()
+
+    }) */
 })
 
 test('movies are returned as json', async () => {
